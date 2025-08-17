@@ -7,7 +7,8 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
-    server: {
+  server: {
     port: 3001,
   },
+  base: '/easy_3d/',
 })
