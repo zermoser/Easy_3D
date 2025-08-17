@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+@layer utilities {
+  .backdrop-blur-xl {
+    backdrop-filter: blur(20px);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+    opacity: 0.2;
+  }
+  50% {
+    transform: translateY(-100px) translateX(50px) rotate(180deg);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(0) translateX(100px) rotate(360deg);
+    opacity: 0.2;
+  }
+}
+
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 0.1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.3;
+    transform: scale(1.1);
+  }
+}
+
+.animate-float {
+  animation: float 20s infinite linear;
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
