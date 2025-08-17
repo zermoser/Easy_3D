@@ -172,7 +172,7 @@ const Scene = ({ enableControls }: { enableControls: boolean }) => {
         anchorX="center"
         anchorY="middle"
       >
-        สวัสดีครับ ^_^
+        สวัสดีครับ
       </Text>
 
       <Text
@@ -212,19 +212,20 @@ const Scene = ({ enableControls }: { enableControls: boolean }) => {
       </Text>
 
       <OrbitControls
-        // คุมการ enable ของ controls และ autoRotate ผ่าน prop
+        makeDefault
         enabled={enableControls}
         enablePan={true}
         enableZoom={true}
         enableRotate={true}
+        // เพิ่ม damping ให้สัมผัสนุ่มขึ้นบนมือถือ
+        enableDamping
+        dampingFactor={0.08}
         minDistance={8}
         maxDistance={25}
         autoRotate={enableControls}
         autoRotateSpeed={3}
-        // touches อาจมีปัญหากับ types — cast เป็น any เพื่อหลีกเลี่ยง error
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        touches={(THREE as any).TOUCH ? { ONE: (THREE as any).TOUCH.ROTATE, TWO: (THREE as any).TOUCH.DOLLY_PAN } : undefined}
       />
+
     </>
   );
 };
@@ -242,6 +243,8 @@ const Hero3D = () => {
           camera={{ position: [0, 0, 12], fov: 60 }}
           onCreated={() => setIsLoaded(true)}
           dpr={[1, 2]}
+          // ให้ canvas รับ touch gestures (ป้องกัน browser default pan/zoom)
+          style={{ width: '100%', height: '100%', touchAction: 'none' }}
         >
           <Scene enableControls={isExploring} />
         </Canvas>
