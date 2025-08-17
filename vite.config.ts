@@ -10,5 +10,5 @@ export default defineConfig({
   server: {
     port: 3001,
   },
-  base: '/easy_3d/',
+  base: '/Easy_3D/',
 })

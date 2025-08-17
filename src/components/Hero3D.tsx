@@ -172,7 +172,7 @@ const Scene = ({ enableControls }: { enableControls: boolean }) => {
         anchorX="center"
         anchorY="middle"
       >
-        สวัสดีครับ
+        สวัสดีครับ ^_^
       </Text>
 
       <Text
@@ -196,7 +196,7 @@ const Scene = ({ enableControls }: { enableControls: boolean }) => {
         anchorX="center"
         anchorY="middle"
       >
-        ยินดีที่ได้รู้จักครับ ^^
+        ยินดีที่ได้รู้จักครับ
       </Text>
 
       <Text
